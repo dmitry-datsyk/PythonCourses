@@ -1,0 +1,17 @@
+
+
+<body>
+
+{% for item in all_items  %}
+    <span>{{ item.name }} ({{ item.price }}) из {{ item.department.shop.name }}</span> <br>
+{% endfor %}
+{% for shop in normal_shops %}
+<h3>{{ shop.name }}</h3>
+    {% for dep in shop.departments.all %}
+    <h5>{{ dep.sphere }}</h5>
+        {% for item in dep.items.all %}
+        <b>{{ item.name }}</b><br>
+      {% endfor %}
+    {% endfor %}
+{% endfor %}
+</body>

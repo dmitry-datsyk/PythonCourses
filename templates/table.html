@@ -1,0 +1,28 @@
+{% load static %}
+
+
+<table border="1">
+            <tr>
+                <td>Название</td>
+                <td>Описание</td>
+                <td>Цена</td>
+                <td>Изображение</td>
+            </tr>
+            {% for item in dep.items.all %}
+                <tr>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.price }}</td>
+                    <td> {% if item.image %}
+                       <img width = "100" src = "{{ item.image.url }}"></img>
+                        {% endif %}
+                    </td>
+                    <td><a href="{% url 'update' item.id %}">
+                        <img width=50 src="{% static 'edit.svg'%}">
+                    </a></td>
+                    <td><a href="{% url 'delete' item.id %}">
+                        <img width=50 src="{% static 'del.svg'%}">
+                    </a></td>
+                </tr>
+            {% endfor %}
+        </table>

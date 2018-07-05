@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form</title>
+</head>
+<body>
+{% if is_name_valid == True %}
+<p><span style="color: Red">Ошибка в назавнии отдела</span></p>
+<br>
+{% endif %}
+<form method="POST">
+{% csrf_token %}
+    <label>Название: <input type="text" name="sphere" value={{ sphere }}>
+
+    </label>
+ <br><br>
+    <label>Количество сотрудников:
+        <input type="number" name="staff_amount"  value={{ staff_amount }}></label>
+   <br><br>
+    <label>Описание:
+        <input type="text" name="description" value={{ description }}> </label>
+     <br> <br>
+    <button type="submit">Сохранить</button>
+
+</form>
+</body>
+</html>

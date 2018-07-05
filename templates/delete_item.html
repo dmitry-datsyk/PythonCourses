@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Удалить товар {% endblock %}
+
+{% block content %}
+
+
+    <form class="col s6 offset-s3 row" method="POST">
+
+        {% csrf_token %}
+
+    <button type="submit">Удалить</button>
+
+    </form>
+
+{% endblock %}

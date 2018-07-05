@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Главная страница{% endblock %}
+{% block content %}
+
+
+{% for shop in shops %}
+    <h3>{{ shop.name }}</h3>
+    {% for dep in shop.departments.all %}
+        <h5>{{ dep.sphere }}</h5>
+     {% include 'table.html' %}
+
+    {% endfor %}
+    {% endfor %}
+{% endblock %}
+

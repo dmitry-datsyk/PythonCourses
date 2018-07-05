@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load  static %}
+
+{% block title %}Добавление товара{% endblock %}
+
+{% block content %}
+    <p class="center-align">Добавить товар</p>
+    <form  method="POST" enctype="multipart/form-data">
+
+    {% csrf_token %}
+        <div >
+          {{ form.name.label_tag }}
+            {{ form.name }}
+
+        </div>
+        <div >
+          {{ form.price.label_tag }}
+            {{ form.price }}
+        </div>
+    <p>
+        <div >
+        {{ form.creation_date.label_tag }}
+        {{ form.creation_date }}
+        </div>
+    <p>
+      <div name="image">
+        {{ form.image }}
+        {{ form.image.label_tag }}
+
+{#         <input type="file" name="image" accept="image/*"></label>#}
+        </div>
+    <p>
+
+        <div >
+            <select name="department">
+              <option value="" disabled selected>Выберите название</option>
+                {% for dep in departments %}
+              <option value="{{ dep.id }}">{{ dep.sphere }}</option>
+              {% endfor %}
+            </select>
+            {{ form.department.label_tag }}
+        </div>
+
+            <label>
+        {{ form.is_sold }}
+           <span> {{ form.is_sold.label }}</span>
+        </label>
+    <p>
+        <button class="btn waves-effect blue white-text " type="submit">Добавить</button>
+    </form>
+
+
+
+{% endblock %}
+
+
+

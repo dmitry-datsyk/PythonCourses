@@ -1,0 +1,21 @@
+{% load poll_extras %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ current_date|date:"d.m.Y, h-i-s" }}, {{ number_1|add:"8" }}, {{ number_2|floatformat:"2" }}
+, {{ array.0}}{{ array.4}}{{ array|last }}
+<br>
+{%   if  array|last == 9 %}
+   <span> Последний элемент = 9 </span>
+{% endif %}
+<br>
+{% max_number number_1 number_2 number_3 %}
+<br>
+{{ number_1|power:number_3 }}
+</body>
+</html>

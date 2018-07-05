@@ -1,0 +1,29 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Моя вкладка</title>
+</head>
+<body>
+<form method="POST" enctype="multipart/form-data">
+{% csrf_token %}
+<label> Название:
+    <input type="text" name="name" value= {{ items.name}}> </label><br><br>
+<label> Описание:
+    <input type="text" name="description" value= {{items.description}}> </label><br><br>
+<label> Цена:
+    <input type="number" name="price" value={{ items.price }}> </label><br><br>
+<label>Отдел:
+    <input type="number" name="department" value={{ items.department_id}}> </label><br><br>
+<label>
+Изображение: {% if items.image %}
+<img width=100 src="{{items.image.url}}">
+{% endif %}
+<input type="file" name="image" accept="image/*">
+
+</label><br><br>
+<input type="checkbox" id="delete_image" name="delete_image" value="on">
+<label for="delete_image">Удалить изображение?</label><br><br>
+<button type="submit">Сохранить</button>
+</form>
+</body>
+

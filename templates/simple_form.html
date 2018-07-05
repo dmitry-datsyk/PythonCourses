@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Простая форма{% endblock %}
+
+{% block content %}
+    <p class="center-align">Моя простая форма</p>
+    <form class="col s6 offset-s3 row" method="POST">
+
+    {% csrf_token %}
+        <div class="input-field col s6">
+          {{ form.title.label_tag }}
+            {{ form.title }}
+        </div>
+        <div class="input-field col s6">
+          {{ form.price.label_tag }}
+            {{ form.price }}
+        </div>
+        <label>
+        {{ form.is_sold }}
+           <span> {{ form.is_sold.label }}</span>
+        </label>
+        <div class="input-field col s6">
+        {{ form.creation_date.label_tag }}
+        {{ form.creation_date }}
+        </div>
+    <p>
+        <button class="btn waves-effect blue white-text " type="submit">Показать</button>
+    </form>
+
+  <script>
+  $(document).ready(function(){
+    $('.datepicker').datepicker();
+  })</script>
+
+{% endblock %}

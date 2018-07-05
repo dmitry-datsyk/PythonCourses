@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Поиск{% endblock %}
+
+{% block content %}
+    <p class="center-align">Поиск</p>
+    <form class="col s6 offset-s3 row" method="POST">
+
+    {% csrf_token %}
+        <div class="input-field">
+          {{ form.min_price.label_tag }}
+            {{ form.min_price }}
+        </div>
+        <div class="input-field">
+          {{ form.max_price.label_tag }}
+            {{ form.max_price }}
+        </div>
+        <div class="input-field">
+          {{ form.part_name.label_tag }}
+            {{ form.part_name }}
+        </div>
+
+        <div class="input_field">
+            {{ form.shop.label_tag }}
+            {{ form.shop }}
+        </div>
+
+        <label>
+        {{ form.is_sold }}
+           <span> {{ form.is_sold.label }}</span>
+        </label>
+
+    <p>
+        <button id="search_button" class="btn waves-effect blue white-text " type="submit">Показать</button>
+    </form>
+
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Редактирование товара{% endblock %}
+
+{% block content %}
+
+
+    <form class="col s6 offset-s3 row" method="POST" enctype="multipart/form-data">
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+       Удалить изображение: <input type="checkbox" name="delete_image">
+
+        <button type="submit">Обновить</button>
+
+    </form>
+
+{% endblock %}
